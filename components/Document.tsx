@@ -6,11 +6,12 @@ import { Button } from "./ui/button";
 import { doc, updateDoc } from "firebase/firestore";
 import { db } from "@/firebase";
 import { useDocumentData } from "react-firebase-hooks/firestore";
+import Editor from "./Editor";
 
 function Document({ id }: { id: string }) {
     const [input, setInput] = useState("");
     const [isUpdating, startTransition] = useTransition();
-    const [data, laoding, error] = useDocumentData(doc(db, "documents", id))
+    const [data, laoding, error] = useDocumentData(doc(db, "documents", id));
 
     useEffect(() => {
         if (data) {
@@ -47,7 +48,10 @@ function Document({ id }: { id: string }) {
             </div>
             {/* Mange Users */}
             {/* Avatars */}
+            <hr className="pb-10" />
             {/* Collaborative Editor */}
+            <Editor />
+
         </div>
     )
 }
