@@ -10,6 +10,7 @@ import Editor from "./Editor";
 import useOwner from "@/lib/useOwner";
 import DeleteDocument from "./DeleteDocument";
 import InviteUser from "./InviteUser";
+import ManageUsers from "./ManageUsers";
 
 function Document({ id }: { id: string }) {
     const [input, setInput] = useState("");
@@ -49,17 +50,19 @@ function Document({ id }: { id: string }) {
                     {/* IF */}
                     {isOwner && (
                         <>
-
+                            {/* isOwner && InviteUser, DeleteDocument */}
                             <InviteUser />
-
                             <DeleteDocument />
                         </>
                     )}
-                    {/* isOwner && InviteUser, DeleteDocument */}
+
                 </form>
             </div>
-            {/* Mange Users */}
-            {/* Avatars */}
+            <div className="flex max-w-6xl mx-auto justify-between items-center mb-5">
+                {/* Mange Users */}
+                <ManageUsers />
+                {/* Avatars */}
+            </div>
             <hr className="pb-10" />
             {/* Collaborative Editor */}
             <Editor />
